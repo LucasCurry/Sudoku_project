@@ -104,14 +104,12 @@ while(True):
     for i in range(len(ls)):
         for j in range(len(ls[i])):
             ls[i][j] = str(ls[i][j])
-            print(type(ls[i][j]))
 
     #Writes list to solved.csv
     for i in range(9):
         end_storage.write('\n')
         for j in range(9):
             end_storage.write(f'{ls[i][j]},')
-    print(ls)
 
 
     #Code to let user print out specific rows/columns/blocks
@@ -123,8 +121,11 @@ while(True):
     column(ls, row_var, column_var)
     blocks(ls, block_var)'''
 
+    #Flavor code to let someone continue or end program
+    print(ls)
     cont = input('Continue(y/n)\n')
     if(cont == 'n'):
         print('Alrighty tighty, goodbye!')
         break
 f.close()
+end_storage.close()
