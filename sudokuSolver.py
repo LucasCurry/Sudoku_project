@@ -30,11 +30,10 @@ def possible(y,x,n):
             return False
     x0 = (x//3)*3
     y0 = (y//3)*3
-    for i in range(3):
-        for j in range(3):
-            if ls[y0+i][x0+j] == n:
-                return False
-    return True
+    for i in range(1,11):
+        if check_blocks(ls, i, n) is True:
+            return True
+    return False
 
 #Recrusive function that looks for 0, uses the possible function to
 #check which number n could be. When it find a number it adds it to the
@@ -85,7 +84,40 @@ def blocks (ls, block_var):
     elif (block_var == 9):
         print(f'{ls[6][6:9]}\n{ls[7][6:9]}\n{ls[8][6:9]}')
 
-
+#Function that iterates from 1-10 with block_var and check for
+#number_to_check_for in each "block". If it does not find
+#number_to_check_for in any of the nine blocks, it does a
+#last loop that goes straight to True.
+def check_blocks(ls, block_var, number_to_check_for):
+    if (block_var == 1):
+        if number_to_check_for in ls[0][0:3] or ls[1][0:3] or ls[2][0:3]:
+            return False
+    elif (block_var == 2):
+        if number_to_check_for in ls[0][3:6] or ls[1][3:6] or ls[2][3:6]:
+            return False
+    elif (block_var == 3):
+        if number_to_check_for in ls[0][6:9] or ls[1][6:9] or ls[2][6:9]:
+            return False
+    elif (block_var == 4):
+        if number_to_check_for in ls[3][0:3] or ls[4][0:3] or ls[5][0:3]:
+            return False
+    elif (block_var == 5):
+        if number_to_check_for in ls[3][3:6] or ls[4][3:6] or ls[5][3:6]:
+            return False
+    elif (block_var == 6):
+        if number_to_check_for in ls[3][6:9] or ls[4][6:9] or ls[5][6:9]:
+            return False
+    elif (block_var == 7):
+        if number_to_check_for in ls[6][0:3] or ls[7][0:3] or ls[8][0:3]:
+            return False
+    elif (block_var == 8):
+        if number_to_check_for in ls[6][3:6] or ls[7][3:6] or ls[8][3:6]:
+            return False
+    elif (block_var == 9):
+        if number_to_check_for in ls[6][6:9] or ls[7][6:9] or ls[8][6:9]:
+            return False
+    else:
+        return True
 
 
 while(True):
